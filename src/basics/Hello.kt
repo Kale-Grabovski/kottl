@@ -1,4 +1,4 @@
-package Basics
+package basics
 
 import java.io.File
 import java.io.FileNotFoundException
@@ -99,15 +99,15 @@ fun main(args: Array<String>) {
     for (i in 5 downTo 1) println(i)
 
     // Is 5 included into 1..10 range
-    if (5 in 1..10) print("5 found in range")
+    if (5 in 1..10) println("5 found in range")
 
     // try-catch
-    val file = File("foo")
+    val file = File("/etc/shit")
     var stream: OutputStream? = null
     try {
         stream = file.outputStream()
     } catch (ex: FileNotFoundException) {
-        println("File doesn't exist") // this shit should be printed, but it's not lol
+        println("File doesn't exist") // this shit
     } finally {
         stream?.close()
     }
