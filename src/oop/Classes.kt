@@ -127,6 +127,20 @@ fun log(msg:String) {
     println(msg)
 }
 
+// Data classes are useful because we don't need to override toString(), hashCode() and equals() methods
+// as in Java
+data class Kent(val name:String)
+
+// Singleton. Analog to Java's static call. Ctors are disabled inside this shit.
+object Util {
+    var name = "Shit"
+
+    init {
+        println("Initializing Util")
+    }
+    fun foo() = println(name)
+}
+
 fun main (args: Array<String>) {
     val t = User("a", "b", 1907)
     println(t)
@@ -137,7 +151,18 @@ fun main (args: Array<String>) {
 
     actOnHero(SpiderMan())
 
+    // Properties
     val emp = Employee666()
     emp.name = "John Doe"
     println(emp.name)
+
+    // Data classes
+    val e1 = Kent("John Doe")
+    val e2 = Kent("John Doe")
+    println(e1)
+    println(e1 == e2) // true
+
+    // Call singleton
+    Util.name = "Bar"
+    Util.foo() // Bar
 }
